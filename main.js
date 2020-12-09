@@ -42,7 +42,7 @@
 // // In this file you can include the rest of your app's specific main process
 // // code. You can also put them in separate files and require them here.
 
-const { app, BrowserWindow, ipcMain, BrowserView, BrowserWindowProxy } = require('electron');
+const { app, BrowserWindow, ipcMain, BrowserView, BrowserWindowProxy, dialog } = require('electron');
 const { ipcRenderer } = require('electron/renderer');
 
 class AppWindow extends BrowserWindow {
@@ -66,7 +66,7 @@ class AppWindow extends BrowserWindow {
 
 app.on('ready', () => {
   const mainWindow = new AppWindow({}, './renderer/index.html');
-  mainWindow.loadFile('./renderer/index.html');
+  // mainWindow.loadFile('./renderer/index.html');
   ipcMain.on('add-music-window', () => {
     const addWindow = new AppWindow(
       {
@@ -76,5 +76,13 @@ app.on('ready', () => {
       },
       './renderer/add.html'
     );
+  });
+  ipcMain.on('open-music-file', () => {
+    dialog
+      .showOpenDialog({
+        properties: ['openFile', 'multiSelections'],
+        filters: [{ name: 'Music', extensions: ['mp3'] }],
+      })
+      .then(res => console.log(res.filePaths));
   });
 });
