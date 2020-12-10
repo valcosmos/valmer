@@ -77,12 +77,16 @@ app.on('ready', () => {
       './renderer/add.html'
     );
   });
-  ipcMain.on('open-music-file', () => {
+  ipcMain.on('open-music-file', event => {
     dialog
       .showOpenDialog({
         properties: ['openFile', 'multiSelections'],
         filters: [{ name: 'Music', extensions: ['mp3'] }],
       })
-      .then(res => console.log(res.filePaths));
+      .then(res => {
+        if (res.filePaths) {
+          event.sender.send('selected-file', res.filePaths);
+        }
+      });
   });
 });
