@@ -43,8 +43,8 @@
 // // code. You can also put them in separate files and require them here.
 
 const { app, BrowserWindow, ipcMain, BrowserView, BrowserWindowProxy, dialog } = require('electron');
-const { ipcRenderer } = require('electron/renderer');
-
+const DataStore = require('./MusicDataStore');
+const myStore = new DataStore({ name: 'Music Data' });
 class AppWindow extends BrowserWindow {
   constructor(config, fileLocation) {
     const basicConfig = {
@@ -76,6 +76,11 @@ app.on('ready', () => {
       },
       './renderer/add.html'
     );
+  });
+  ipcMain.on('add-tracks', (event, tracks) => {
+    // console.log('====', tracks);
+    const updateTracks = myStore.addTracks(tracks).getTracks();
+    console.log('>>>>>', updateTracks);
   });
   ipcMain.on('open-music-file', event => {
     dialog
