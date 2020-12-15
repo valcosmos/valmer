@@ -7,6 +7,9 @@
   <title>本地播放器</title>
 
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
+
 </head>
 
 <body>
@@ -15,6 +18,17 @@
     <button type="button" id="add-music-button" class="mt-4 btn btn-primary btn-lg btn-block">
       添加歌曲到曲库
     </button>
+    <div id="tracksList" class="mt-4">
+    </div>
+    <div class="container fixed-bottom bg-white pb-4">
+      <hr>
+      <div class="row my-2" id="player-status"></div>
+      <div class="progress">
+        <div class="progress-bar bg-success" id="player-progress" role="progressbar" style="width: 0%">
+          0%
+        </div>
+      </div>
+    </div>
   </div>
   <script>
     require('./index.js')

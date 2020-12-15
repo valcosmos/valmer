@@ -4,7 +4,24 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --watch main.js --exec electron ."
+    "start": "nodemon --watch main.js --exec electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "musicplayer",
+    "win": {
+      "icon": "",
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "publish": [
+        {
+          "provider": "generic",
+          "url": ""
+        }
+      ]
+    }
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,10 +31,11 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "Cupid-Valentine",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^11.0.3",
+    "electron-builder": "^22.9.1",
     "nodemon": "^2.0.6"
   },
   "dependencies": {

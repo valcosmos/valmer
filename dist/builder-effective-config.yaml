@@ -1,0 +1,13 @@
+directories:
+  output: dist
+  buildResources: build
+appId: musicplayer
+win:
+  icon: ''
+  target:
+    - nsis
+    - zip
+  publish:
+    - provider: generic
+      url: ''
+electronVersion: 11.0.3
