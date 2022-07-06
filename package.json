@@ -36,7 +36,7 @@
   "devDependencies": {
     "electron": "^19.0.7",
     "electron-builder": "^23.1.0",
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.19"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
