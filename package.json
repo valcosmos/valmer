@@ -39,7 +39,7 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.0",
     "electron-store": "^8.1.0",
     "uuid": "^9.0.0"
   }
