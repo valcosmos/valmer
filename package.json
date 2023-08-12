@@ -34,7 +34,7 @@
   "author": "Cupid-Valentine",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^25.1.0",
+    "electron": "^25.5.0",
     "electron-builder": "^23.6.0",
     "nodemon": "^2.0.22"
   },
